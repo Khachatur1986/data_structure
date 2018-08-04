@@ -53,11 +53,12 @@ public class TestHashCode {
         personsi.add(pi2);
         personsi.add(pi3);
 
-        Iterator iter = persons.iterator();
+        System.out.println("personsi.size() = " + personsi.size());
+
+        Iterator iter = personsi.iterator();
         /**
-         * hashcode.Person@74a14482
-         * hashcode.Person@4554617c
-         * hashcode.Person@1540e19d
+         * hashcode.PersonImplEx@85e29b57
+         * hashcode.PersonImplEx@41f4465
          */
         while (iter.hasNext()) {
             System.out.println(iter.next());
