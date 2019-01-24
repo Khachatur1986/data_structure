@@ -1,5 +1,7 @@
 package hashtable;
 
+import java.util.Iterator;
+
 /**
  * A hash set stores an unordered collection of objects, using a hash table
  */
@@ -10,6 +12,7 @@ public class HashSet {
 
     /**
      * initialize buckets array
+     *
      * @param bucketSize is length buckets array
      */
     public HashSet(int bucketSize) {
@@ -97,8 +100,36 @@ public class HashSet {
         return size;
     }
 
+    public Iterator iterator() {
+        return new HashSetIterator();
+    }
+
     private class Link {
-        public Object data;
-        public Link next;
+        Object data;
+        Link next;
+    }
+
+    private class HashSetIterator implements Iterator {
+        private Link current;
+        private Link previous;
+        private int currentBucketIndex;
+        private int previousBucketIndex;
+
+        public HashSetIterator() {
+            currentBucketIndex = 0;
+            previous = null;
+
+            current = buckets[currentBucketIndex];
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current.next != null;
+        }
+
+        @Override
+        public Object next() {
+            return null;
+        }
     }
 }
